@@ -1,7 +1,6 @@
 package com.jzli.dao.mapper;
 
 import com.jzli.bean.User;
-import org.springframework.context.annotation.Bean;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Component;
 

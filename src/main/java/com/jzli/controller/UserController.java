@@ -5,6 +5,7 @@ import com.jzli.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -24,18 +25,18 @@ public class UserController {
     @Autowired
     private IUserService userService;
 
-    @RequestMapping("/welcome")
+    @RequestMapping(value = "/welcome", method = RequestMethod.GET)
     public String welcome() {
         return "welcome";
     }
 
-    @RequestMapping("/user/{id}")
+    @RequestMapping(value = "/user/{id}", method = RequestMethod.GET)
     public String getUserById(@PathVariable(value = "id") int id) {
         List<User> list = userService.getUserById(id);
         return list.toString();
     }
 
-    @RequestMapping("/user/{id}/count")
+    @RequestMapping(value = "/user/{id}/count", method = RequestMethod.GET)
     public String updateUserCount(@PathVariable(value = "id") int id) {
         userService.updateUserCountById(id);
         List<User> list = userService.getUserById(id);
